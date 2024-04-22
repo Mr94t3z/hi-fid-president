@@ -21,12 +21,14 @@ init(process.env.AIRSTACK_API_KEY || '');
 export const app = new Frog({
   assetsPath: '/',
   basePath: '/api/frame',
+  imageAspectRatio: '1:1',
   imageOptions: {
     /* Other default options */
     fonts: [
       {
         name: 'Space Mono',
         source: 'google',
+        weight: 700,
       },
     ],    
   },
@@ -62,7 +64,6 @@ app.frame('/', async (c) => {
       profileImage: user.profileImage
   }));
 
-  const fid = users[0].userId;
   const username = users[0].profileName;
 
   return c.res({
@@ -70,8 +71,9 @@ app.frame('/', async (c) => {
       <div
         style={{
           alignItems: 'center',
-          background: '#472A91',
-          backgroundSize: '100% 100%',
+          background: 'radial-gradient(to right, #1384C3, #320974)',
+          backgroundImage: 'url(https://raw.githubusercontent.com/Mr94t3z/hi-fid-president/master/public/images/bg.png)',
+          backgroundSize: '100%',
           display: 'flex',
           flexDirection: 'column',
           flexWrap: 'nowrap',
@@ -79,9 +81,8 @@ app.frame('/', async (c) => {
           justifyContent: 'center',
           textAlign: 'center',
           width: '100%',
-          color: 'white',
-          fontFamily: 'Space Mono',
-          fontSize: 35,
+          color: '#E1A411',
+          fontSize: 60,
           fontStyle: 'normal',
           letterSpacing: '-0.025em',
           lineHeight: 1.4,
@@ -90,21 +91,8 @@ app.frame('/', async (c) => {
           whiteSpace: 'pre-wrap',
         }}
       >
-        <p>Hi-{fid} President </p>
-        {/* <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img
-            src={!users[0].profileImage ? '/images/no_avatar.png' : users[0].profileImage}
-            style={{
-              width: 100,
-              height: 100,
-              borderRadius: 100,
-              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)",
-            }}
-            width={200} 
-            height={200} 
-          />
-          <span style={{ marginLeft: '25px' }}>Hi, @{username}</span>
-        </div> */}
+        <p style={{ fontSize : '36px', margin : '0', marginTop : '15' }}> Hi-FID President </p>
+        <p style={{ fontSize : '18px', margin : '0', marginBottom : '40', color : 'white' }}> @{username} </p>
       </div>
     ),
     intents: [
