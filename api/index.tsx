@@ -4,8 +4,8 @@ import { init, fetchQuery } from "@airstack/node";
 import dotenv from 'dotenv';
 
 // Uncomment this packages to tested on local server
-import { devtools } from 'frog/dev';
-import { serveStatic } from 'frog/serve-static';
+// import { devtools } from 'frog/dev';
+// import { serveStatic } from 'frog/serve-static';
 
 // Uncomment to use Edge Runtime.
 // export const config = {
@@ -105,13 +105,6 @@ app.frame('/', async (c) => {
           />
           <span style={{ marginLeft: '25px' }}>Hi, @{username}</span>
         </div> */}
-        {/* <p style={{ fontSize: 30 }}>Task 10 - 10 pt per tip 🎖️</p>
-        <p style={{ margin : 0 }}>[ Tip - Casts made in /747air /higher /imagine /enjoy or /degen channels (up to 50 tip) ]</p>
-        {totalPointsEarned > 0 ? (
-          <p style={{ fontSize: 24 }}>Completed ✅</p>
-        ) : (
-          <p style={{ fontSize: 24 }}>Not qualified ❌</p>
-        )} */}
       </div>
     ),
     intents: [
@@ -123,7 +116,7 @@ app.frame('/', async (c) => {
 })
 
 // Uncomment for local server testing
-devtools(app, { serveStatic });
+// devtools(app, { serveStatic });
 
 export const GET = handle(app)
 export const POST = handle(app)
