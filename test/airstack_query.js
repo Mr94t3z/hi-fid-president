@@ -10,7 +10,7 @@ init(process.env.AIRSTACK_API_KEY);
 const query = `
     query MyQuery {
         Socials(
-        input: {filter: {dappName: {_eq: farcaster}, followingCount: {_gte: 1}}, blockchain: ethereum, order: {profileCreatedAtBlockTimestamp: DESC}, limit: 1}
+        input: {filter: {dappName: {_eq: farcaster}, profileName: {_nin: ""}}, blockchain: ethereum, order: {profileCreatedAtBlockTimestamp: DESC}, limit: 1}
         ) {
         Social {
             dappName
@@ -18,8 +18,6 @@ const query = `
             profileName
             profileDisplayName
             profileImage
-            followerCount
-            followingCount
         }
         }
     }
