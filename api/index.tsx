@@ -4,8 +4,8 @@ import { init, fetchQuery } from "@airstack/node";
 import dotenv from 'dotenv';
 
 // Uncomment this packages to tested on local server
-// import { devtools } from 'frog/dev';
-// import { serveStatic } from 'frog/serve-static';
+import { devtools } from 'frog/dev';
+import { serveStatic } from 'frog/serve-static';
 
 // Uncomment to use Edge Runtime.
 // export const config = {
@@ -30,7 +30,10 @@ export const app = new Frog({
         source: 'google',
         weight: 700,
       },
-    ],    
+    ],
+
+    height: 710,
+    width: 710,
   },
   // Supply a Hub to enable frame verification.
   // hub: neynar({ apiKey: 'NEYNAR_FROG_FM' })
@@ -71,9 +74,10 @@ app.frame('/', async (c) => {
       <div
         style={{
           alignItems: 'center',
-          background: 'radial-gradient(to right, #1384C3, #320974)',
           backgroundImage: 'url(https://raw.githubusercontent.com/Mr94t3z/hi-fid-president/master/public/images/bg.png)',
-          backgroundSize: '100%',
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           display: 'flex',
           flexDirection: 'column',
           flexWrap: 'nowrap',
@@ -82,7 +86,6 @@ app.frame('/', async (c) => {
           textAlign: 'center',
           width: '100%',
           color: '#E1A411',
-          fontSize: 60,
           fontStyle: 'normal',
           letterSpacing: '-0.025em',
           lineHeight: 1.4,
@@ -91,8 +94,8 @@ app.frame('/', async (c) => {
           whiteSpace: 'pre-wrap',
         }}
       >
-        <p style={{ fontSize : '36px', margin : '0', marginTop : '15' }}> Hi-FID President </p>
-        <p style={{ fontSize : '18px', margin : '0', marginBottom : '40', color : 'white' }}> @{username} </p>
+        <p style={{ fontSize : '36px', margin : '0', marginTop : '610', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}> Hi-FID President </p>
+        <p style={{ fontSize : '24px', margin : '0', marginBottom : '15', color : 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}> @{username} </p>
       </div>
     ),
     intents: [
@@ -104,7 +107,7 @@ app.frame('/', async (c) => {
 })
 
 // Uncomment for local server testing
-// devtools(app, { serveStatic });
+devtools(app, { serveStatic });
 
 export const GET = handle(app)
 export const POST = handle(app)
